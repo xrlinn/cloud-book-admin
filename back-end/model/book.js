@@ -24,6 +24,10 @@ const book = new mongoose.Schema({
     likenums: {
         type: Number,
         default: 0
+    },
+    length: {
+        type: Number,
+        default: 0
     }
 },{versionKey: false, timestamps: {createdAt: 'createTime',
 updatedAt: 'updateTime'}})

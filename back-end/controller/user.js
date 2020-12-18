@@ -8,7 +8,7 @@ async function register (req,res,next) {
     try {
         const {phone, code, password} = req.body;
         const phoneStatus = validator.isMobilePhone(phone, "zh-CN")
-        const passwordStatus = validator.isLength(this.formData.password, {
+        const passwordStatus = validator.isLength(password, {
             min: 6
           })
         if (phoneStatus && passwordStatus) { // 判断手机格式是否正确

@@ -10,6 +10,7 @@ const uploadRouters = require('./upload')
 const swiperRouters = require('./swiper')
 const collectRouters = require('./collection')
 const readListRouters = require('./readlist')
+const likeRouters = require('./like')
 
 router.use('/book', bookRouters)
 router.use('/category', categoryRouters)
@@ -21,5 +22,6 @@ router.use('/uploadToken', uploadRouters)
 router.use('/swiper', swiperRouters)
 router.use('/collect', collectRouters)
 router.use('/readList', readListRouters)
+router.use('/like', likeRouters)
 
 module.exports = router;

@@ -5,10 +5,9 @@ const mongoose = require('mongoose')
 
 async function addCategory (req,res,next) {
     try {
-        const {title, icon} = req.body;
+        const {title} = req.body;
         await categoryModel.create({
-            title,
-            icon
+            title
         })
 
         res.json({

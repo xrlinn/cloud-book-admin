@@ -43,6 +43,10 @@ async function getBook (req,res,next) {
             )
             titleText.push($(item).text())
         })
+
+        await bookModel.update({title},{
+            length: titlesArrUrl.length
+        })
         // async await 中foreach和map方法不好用 用for循环
         for(let i = 0; i < titlesArrUrl.length; i++){
             const item = titlesArrUrl[i]
@@ -51,10 +55,6 @@ async function getBook (req,res,next) {
             const articleData = await rq.get(item)
             const $ = cheerio.load(articleData)
             const content = $('.content').text()
-
-            await bookModel.create({
-                length: titlesArrUrl.length
-            })
 
             const title = await titleModel.create({
                 bookId: book._id,
@@ -70,6 +70,7 @@ async function getBook (req,res,next) {
                 titleId: title._id 
             })
         }
+
         res.json({
             code: 200,
             msg: '爬取成功'
